@@ -4,7 +4,7 @@ from socket import *
 import sys
 
 
-def Server(port=13331):
+def webServer(port=13331):
   serverSocket = socket(AF_INET, SOCK_STREAM)
   #Prepare a server socket
   serverSocket.bind(("", port))
@@ -21,7 +21,7 @@ def Server(port=13331):
     try:
 
       try:
-        message = connectionSocket.recv(1024).decode
+        message = connectionSocket.recv(1024).decode()
         filename = message.split()[1]
         f = open(filename[1:])
         outputdata = f.read
@@ -56,4 +56,4 @@ def Server(port=13331):
   sys.exit()  # Terminate the program after sending the corresponding data
 
 if __name__ == "__main__":
-  Server(13331)
+  webServer(13331)
